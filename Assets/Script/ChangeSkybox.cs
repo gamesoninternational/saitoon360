@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
+
 
 public class ChangeSkybox : MonoBehaviour
 {
@@ -13,7 +15,7 @@ public class ChangeSkybox : MonoBehaviour
 
     public int zoomInOut;
 
-    //public Animator CamAnim;
+    public Animator CamAnim;
     private Camera CamObject;
     // Start is called before the first frame update
     void Start()
@@ -38,22 +40,27 @@ public class ChangeSkybox : MonoBehaviour
     public void keScene(){
         CamObject.GetComponent<TouchCameraRotation>().enabled = false;
         CamObject.GetComponent<CameraController2>().enabled = false;
-        //CamAnim.SetTrigger("CameraTransition");
+        //CamObject.GetComponent<Animator>().enabled = true;
+
+        
+        
+        CamAnim.SetTrigger("CameraTransition");
 
         ZoomInCam();
         StartCoroutine(SceneTransition());
     }
 
     IEnumerator SceneTransition() {
-        yield return new WaitForSeconds(0.13f);
+        yield return new WaitForSeconds(0.1f);
         zoomInOut = 3;
-        yield return new WaitForSeconds(0.13f);
+        yield return new WaitForSeconds(0.1f);
         CamObject.fieldOfView = 60;
         RenderSettings.skybox = KeScene;
         CurrentCanvasUI.SetActive(false);
         NextCanvasUI.SetActive(true);
         CamObject.GetComponent<TouchCameraRotation>().enabled = true;
         CamObject.GetComponent<CameraController2>().enabled = true;
+        //CamObject.GetComponent<Animator>().enabled = false;
         //zoomInOut = 3;
         //CamObject.fieldOfView = Mathf.Lerp(CamObject.fieldOfView, MaxFOV, SpeedZoom * Time.deltaTime);
         //CamObject.GetComponent<Animator>().enabled = false;

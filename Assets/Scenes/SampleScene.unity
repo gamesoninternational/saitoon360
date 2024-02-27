@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.28091228, g: 0.27221194, b: 0.24308622, a: 1}
+  m_IndirectSpecularColor: {r: 0.28087983, g: 0.27227148, b: 0.24302807, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -275,9 +275,10 @@ MonoBehaviour:
   CurrentCanvasUI: {fileID: 1408625698}
   NextCanvasUI: {fileID: 86951594}
   SpeedZoom: 400
-  MinFOV: 8
+  MinFOV: 0
   MaxFOV: 60
   zoomInOut: 0
+  CamAnim: {fileID: 963194237}
 --- !u!1 &288316452
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,9 +335,10 @@ MonoBehaviour:
   CurrentCanvasUI: {fileID: 1294165451}
   NextCanvasUI: {fileID: 756788596}
   SpeedZoom: 400
-  MinFOV: 8
+  MinFOV: 0
   MaxFOV: 60
   zoomInOut: 0
+  CamAnim: {fileID: 963194237}
 --- !u!114 &288316455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,9 +570,10 @@ MonoBehaviour:
   CurrentCanvasUI: {fileID: 86951594}
   NextCanvasUI: {fileID: 1408625698}
   SpeedZoom: 400
-  MinFOV: 8
+  MinFOV: 0
   MaxFOV: 60
   zoomInOut: 0
+  CamAnim: {fileID: 963194237}
 --- !u!114 &344442858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -710,9 +713,10 @@ MonoBehaviour:
   CurrentCanvasUI: {fileID: 1294165451}
   NextCanvasUI: {fileID: 86951594}
   SpeedZoom: 400
-  MinFOV: 8
+  MinFOV: 0
   MaxFOV: 60
   zoomInOut: 0
+  CamAnim: {fileID: 963194237}
 --- !u!114 &616373341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1380,6 +1384,9 @@ GameObject:
   - component: {fileID: 963194230}
   - component: {fileID: 963194229}
   - component: {fileID: 963194234}
+  - component: {fileID: 963194236}
+  - component: {fileID: 963194235}
+  - component: {fileID: 963194237}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1506,6 +1513,104 @@ MonoBehaviour:
   speed: 1
   minZoom: 20
   maxZoom: 90
+--- !u!114 &963194235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 8d1cf061ec707754ea5f9c012adbe0b3, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 0
+  priority: 0
+--- !u!114 &963194236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 963194228}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
+--- !u!95 &963194237
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 828d7af6cdf6c4e1d91fd163a4e0cd2f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1294165451
 GameObject:
   m_ObjectHideFlags: 0
@@ -1761,7 +1866,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &1621469646
 Canvas:
   m_ObjectHideFlags: 0
@@ -2125,9 +2230,10 @@ MonoBehaviour:
   CurrentCanvasUI: {fileID: 756788596}
   NextCanvasUI: {fileID: 86951594}
   SpeedZoom: 400
-  MinFOV: 8
+  MinFOV: 0
   MaxFOV: 60
   zoomInOut: 0
+  CamAnim: {fileID: 963194237}
 --- !u!114 &1901856304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2247,9 +2353,10 @@ MonoBehaviour:
   CurrentCanvasUI: {fileID: 86951594}
   NextCanvasUI: {fileID: 1294165451}
   SpeedZoom: 400
-  MinFOV: 8
+  MinFOV: 0
   MaxFOV: 60
   zoomInOut: 0
+  CamAnim: {fileID: 963194237}
 --- !u!114 &2053383438
 MonoBehaviour:
   m_ObjectHideFlags: 0
