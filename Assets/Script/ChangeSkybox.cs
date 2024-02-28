@@ -51,9 +51,9 @@ public class ChangeSkybox : MonoBehaviour
     }
 
     IEnumerator SceneTransition() {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.35f);
         zoomInOut = 3;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.35f);
         CamObject.fieldOfView = 60;
         RenderSettings.skybox = KeScene;
         CurrentCanvasUI.SetActive(false);
