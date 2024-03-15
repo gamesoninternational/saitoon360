@@ -6,6 +6,7 @@ public class GyroscopeCameraRotation : BasicCameraRotation
 {
     private float x;
     private float y;
+    
 
     public bool gyroEnabled = false;
     readonly float sensitivity = 50.0f;
@@ -39,12 +40,15 @@ public class GyroscopeCameraRotation : BasicCameraRotation
     {
         x = Input.gyro.rotationRate.x;
         y = Input.gyro.rotationRate.y;
+        
 
         float xFiltered = FilterGyroValues(x);
         RotateUpDown(xFiltered*sensitivity);
 
         float yFiltered = FilterGyroValues(y);
         RotateRightLeft(yFiltered * sensitivity);
+
+
     }
 
     float FilterGyroValues(float axis)
