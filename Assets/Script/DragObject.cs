@@ -49,13 +49,7 @@ public class DragObject : MonoBehaviour
          }
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("ObstacleObj"))
-        {
-            Debug.Log("Kena Obstacle");
-        }
-    }
+    
 
     public void RotateObject(string sumbu){
         this.sumbu = sumbu;

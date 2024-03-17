@@ -24,7 +24,7 @@ public class CameraController2 : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            Debug.Log("Camera Rotate");
+            //Debug.Log("Camera Rotate");
             transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * speed, -Input.GetAxis("Mouse X") * speed, 0));
             X = transform.rotation.eulerAngles.x;
             Y = transform.rotation.eulerAngles.y;
