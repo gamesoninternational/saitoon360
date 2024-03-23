@@ -24,16 +24,16 @@ public class LupTrigger : MonoBehaviour
     {
         if (other.CompareTag("ObstacleObj"))
         {
-            Debug.Log("Kena Obstacle");
-            FinishObj.SetActive(false);
-            UIFailed.SetActive(true);
+            //Debug.Log("Kena Obstacle");
+            //FinishObj.SetActive(false);
+            //UIFailed.SetActive(true);
         }
 
         if (other.CompareTag("ObstacleOut"))
         {
             Debug.Log("Stay on the Line");
         }
-        if (other.CompareTag("Done"))
+        if (other.CompareTag("ObstacleObj"))
         {
             Debug.Log("Jumpscare");
             Jumpscare.SetActive(true);

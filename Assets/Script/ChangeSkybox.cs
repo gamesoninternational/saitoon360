@@ -17,6 +17,8 @@ public class ChangeSkybox : MonoBehaviour
 
     public Animator CamAnim;
     private Camera CamObject;
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,8 @@ public class ChangeSkybox : MonoBehaviour
         if (zoomInOut == 1) {
             CamObject.fieldOfView = Mathf.MoveTowards(CamObject.fieldOfView, MinFOV, SpeedZoom * Time.deltaTime);
         }
+
+        
 
         /*if (zoomInOut == 0)
         {
