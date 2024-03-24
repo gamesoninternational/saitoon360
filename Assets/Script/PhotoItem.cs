@@ -32,5 +32,6 @@ public class PhotoItem : MonoBehaviour
         PlayerPrefs.SetInt(NamaPhoto, SavePhoto);
         PhotoManagerObj.GetComponent<PhotoManager>().CountPhoto++;
         PlayerPrefs.SetInt("Save Count Photo", PhotoManagerObj.GetComponent<PhotoManager>().CountPhoto);
+        PhotoManagerObj.GetComponent<PhotoManager>().PhotoTerkumpul();
     }
 }

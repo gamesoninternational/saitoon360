@@ -5,9 +5,12 @@ using UnityEngine;
 public class LupTrigger : MonoBehaviour
 {
     public GameObject LupObj;
-    public GameObject FinishObj, UIFailed, Jumpscare;
+    public GameObject FinishObj, UISuccess, Jumpscare, LineObj, TaskItemObj, TaskManagerObj;
 
     public Animator CamAnim;
+
+    public float StartPositionX, StartPositionY, StartPositionZ;
+    public float StartRotationX, StartRotationY, StartRotationZ;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,11 +25,14 @@ public class LupTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("ObstacleObj"))
+        if (other.CompareTag("Done"))
         {
-            //Debug.Log("Kena Obstacle");
-            //FinishObj.SetActive(false);
-            //UIFailed.SetActive(true);
+            
+            FinishObj.SetActive(false);
+            UISuccess.SetActive(true);
+            LineObj.SetActive(false);
+            TaskItemObj.GetComponent<TaskItem>().TaskSelesai();
+            PlayerPrefs.SetInt("Save Count Task", TaskManagerObj.GetComponent<TaskManager>().TaskCount);
         }
 
         if (other.CompareTag("ObstacleOut"))
@@ -39,14 +45,15 @@ public class LupTrigger : MonoBehaviour
             Jumpscare.SetActive(true);
             CamAnim.SetTrigger("Jumpscare");
             StartCoroutine(AfterJumpscare());
+            FinishObj.SetActive(false);
         }
     }
 
     public void RestartGame(){
-        LupObj.transform.position = new Vector3(-3.6f, 1.56f, -5f);
-        LupObj.transform.eulerAngles = new Vector3(90f, 90f, 0f);
+        LupObj.transform.position = new Vector3(StartPositionX, StartPositionY, StartPositionZ);
+        LupObj.transform.eulerAngles = new Vector3(StartRotationX, StartRotationY, StartRotationZ);
         FinishObj.SetActive(true);
-        UIFailed.SetActive(false);
+        UISuccess.SetActive(false);
         Jumpscare.SetActive(false);
     }
 
