@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class LupTrigger : MonoBehaviour
 {
     public GameObject LupObj;
     public GameObject FinishObj, UISuccess, Jumpscare, LineObj, TaskItemObj, TaskManagerObj;
+
+    public GameObject Canvas1, Canvas2, Canvas3;
 
     public Animator CamAnim;
 
@@ -46,7 +49,13 @@ public class LupTrigger : MonoBehaviour
             CamAnim.SetTrigger("Jumpscare");
             StartCoroutine(AfterJumpscare());
             FinishObj.SetActive(false);
+            Canvas1.SetActive(false);
+            Canvas2.SetActive(false);
+            Canvas3.SetActive(false);
+            
         }
+
+        
     }
 
     public void RestartGame(){
@@ -54,7 +63,14 @@ public class LupTrigger : MonoBehaviour
         LupObj.transform.eulerAngles = new Vector3(StartRotationX, StartRotationY, StartRotationZ);
         FinishObj.SetActive(true);
         UISuccess.SetActive(false);
+        //Jumpscare.GetComponent<VidPlayer>().StopVideo();
         Jumpscare.SetActive(false);
+
+        Canvas1.SetActive(true);
+        Canvas2.SetActive(true);
+        Canvas3.SetActive(true);
+
+        
     }
 
     IEnumerator AfterJumpscare(){

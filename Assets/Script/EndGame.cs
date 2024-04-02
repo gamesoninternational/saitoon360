@@ -17,7 +17,7 @@ public class EndGame : MonoBehaviour
         
     }
     public void RestartGame(){
-        Application.LoadLevel("Main");
+        Application.LoadLevel("Splashscreen");
         PlayerPrefs.DeleteAll();
     }
 }
