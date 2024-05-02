@@ -8,11 +8,13 @@ TagManager:
   - ObstacleOut
   - Done
   - AudioObj
+  - Hijau
+  - NonHijau
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Topeng
   - Water
   - UI
   - 
