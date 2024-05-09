@@ -25,4 +25,9 @@ public class Story : MonoBehaviour
         show = 1;
         PlayerPrefs.SetInt("SaveStory", show);
     }
+
+    public void OpenStory(){
+        show = 0;
+        PlayerPrefs.SetInt("SaveStory", show);
+    }
 }
