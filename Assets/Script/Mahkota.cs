@@ -48,8 +48,8 @@ public class Mahkota : MonoBehaviour
         }
 
         if(PermataCount == 3){
-            
-            
+            CariButton.SetActive(false);
+
         }
 
     }
@@ -77,5 +77,11 @@ public class Mahkota : MonoBehaviour
 
     public void PasangPermataCall(){
         PasangPermata++;
+    }
+
+    public void CollectAllPermata() {
+        CollectPermataBiru();
+        CollectPermataHijau();
+        CollectPermataMerah();
     }
 }
