@@ -10,6 +10,7 @@ TagManager:
   - AudioObj
   - Hijau
   - NonHijau
+  - Path
   layers:
   - Default
   - TransparentFX
