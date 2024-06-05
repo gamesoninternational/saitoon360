@@ -15,9 +15,11 @@ public class LukisanGame : MonoBehaviour
     private float spawnTimer = 0f;
     private int score = 0; // Variabel skor
 
-    public GameObject Jumpscare;
+    public GameObject Jumpscare, JumpscareLandscape, JumpscarePortrait;
     public TextMeshProUGUI scoreText; // TextMeshPro untuk menampilkan skor
     public GameObject successPanel; // Panel sukses
+
+    public GameObject CheckOrientationScript;
 
     void Update()
     {
@@ -33,6 +35,17 @@ public class LukisanGame : MonoBehaviour
         {
             SpawnImage();
             spawnTimer = 0f;
+        }
+
+        if (CheckOrientationScript.GetComponent<OrientationCheck>().orientationSet == "Landscape")
+        {
+            JumpscareLandscape.SetActive(true);
+            JumpscarePortrait.SetActive(false);
+        }
+        if (CheckOrientationScript.GetComponent<OrientationCheck>().orientationSet == "Portrait")
+        {
+            JumpscarePortrait.SetActive(true);
+            JumpscareLandscape.SetActive(false);
         }
     }
 

@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CanvasOrientationChecker : MonoBehaviour
+public class OrientationCheck : MonoBehaviour
 {
     private Canvas[] canvases;
 
+    public string orientationSet;
     void Start()
     {
         // Get all Canvas components in the scene
@@ -24,8 +25,6 @@ public class CanvasOrientationChecker : MonoBehaviour
     {
         // Check orientation for all canvases every frame
         CheckOrientations();
-
-
     }
 
     void CheckOrientations()
@@ -49,6 +48,16 @@ public class CanvasOrientationChecker : MonoBehaviour
         if (orientationText != null)
         {
             orientationText.text = orientation;
+        }
+
+        // Handle specific behaviors based on orientation
+        if (orientation == "Landscape")
+        {
+            orientationSet = "Landscape";
+        }
+        else
+        {
+            orientationSet = "Portrait";
         }
     }
 }

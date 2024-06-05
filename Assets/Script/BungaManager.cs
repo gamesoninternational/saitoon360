@@ -7,7 +7,7 @@ public class BungaManager : MonoBehaviour
 {
     public int BungaCount;
 
-    public GameObject Jumpscare, SajenPanelDone;
+    public GameObject SajenPanelDone;
     
     public int countdownTime = 10; // Waktu hitung mundur dalam detik
     public TextMeshProUGUI countdownText; // Referensi ke TextMeshPro Text UI
@@ -16,6 +16,9 @@ public class BungaManager : MonoBehaviour
 
     public List<GameObject> BungaButton = new List<GameObject>();
     public List<GameObject> BungaObj = new List<GameObject>();
+
+    public GameObject CheckOrientationScript;
+    public GameObject Jumpscare, JumpscareLandscape, JumpscarePortrait;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +42,16 @@ public class BungaManager : MonoBehaviour
             StopCountdown();
         }
 
-        
+        if (CheckOrientationScript.GetComponent<OrientationCheck>().orientationSet == "Landscape")
+        {
+            JumpscareLandscape.SetActive(true);
+            JumpscarePortrait.SetActive(false);
+        }
+        if (CheckOrientationScript.GetComponent<OrientationCheck>().orientationSet == "Portrait")
+        {
+            JumpscarePortrait.SetActive(true);
+            JumpscareLandscape.SetActive(false);
+        }
     }
 
     public void StartGame(){

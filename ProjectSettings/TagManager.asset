@@ -11,6 +11,7 @@ TagManager:
   - Hijau
   - NonHijau
   - Path
+  - FinishTigger
   layers:
   - Default
   - TransparentFX
